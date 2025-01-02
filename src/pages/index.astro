@@ -1,0 +1,125 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Accueil - Ouest Guyane',
+  description: 'Découvrez l\'Ouest Guyanais : Actualités, services et événements locaux.',
+  ignoreTitleTemplate: false,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Section Hero ******************* -->
+
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Explorer les services',
+        href: '/services',
+        icon: 'tabler:compass',
+      },
+      { text: 'Actualités', href: '/actualites' },
+    ]}
+    image={{ src: '~/assets/images/ouest-guyane-hero.jpg', alt: 'Paysage de l\'Ouest Guyanais' }}
+  >
+    <Fragment slot="title">
+      Bienvenue en <span class="text-accent dark:text-white highlight">Ouest Guyane</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Découvrez les actualités, les événements et les services proposés par la Communauté de Communes de l\'Ouest Guyanais.
+    </Fragment>
+  </Hero>
+
+  <!-- Section Services ******************* -->
+
+  <Features
+  id="services"
+  tagline="Nos Services"
+  title="Découvrez nos domaines d'intervention"
+  subtitle="Des services essentiels pour améliorer le quotidien des habitants et accompagner le développement du territoire."
+  items={[
+    {
+      title: 'Gestion des déchets',
+      description: 'Un service efficace pour une gestion durable des déchets sur tout le territoire.',
+      icon: 'tabler:recycle',
+    },
+    {
+      title: 'Électrification rurale',
+      description: 'Accès à l\'énergie pour toutes les communes, même les plus isolées.',
+      icon: 'tabler:bolt',
+    },
+    {
+      title: 'Développement économique',
+      description: 'Soutenir l\'emploi et l\'innovation au cœur de l\'Ouest Guyanais.',
+      icon: 'tabler:chart-line',
+    },
+  ]}
+/>
+
+
+
+  <!-- Section Actualités **************** -->
+
+  <BlogLatestPosts
+  title="Actualités"
+  information="Retrouvez les dernières nouvelles et événements qui animent notre région."
+  posts-limit={3}
+/>
+
+<Content
+  tagline="Pourquoi choisir l'Ouest Guyanais ?"
+  title="Un territoire riche et diversifié"
+  items={[
+    {
+      title: 'Culture et traditions',
+      description: 'Un mélange unique de cultures qui rend chaque événement mémorable.',
+    },
+    {
+      title: 'Nature préservée',
+      description: 'Des paysages incroyables et une biodiversité exceptionnelle à protéger.',
+    },
+    {
+      title: 'Communauté dynamique',
+      description: 'Des initiatives locales pour une meilleure qualité de vie.',
+    },
+  ]}
+  image={{
+    src: '~/assets/images/nature-ouest-guyane.jpg',
+    alt: 'Paysage naturel de l\'Ouest Guyanais',
+  }}
+/>
+
+  <!-- Section Appel à l\'action ******** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Nous contacter',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Rejoignez-nous&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">et participez au développement de notre région</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Que vous soyez un habitant, un entrepreneur ou un visiteur, l\'Ouest Guyanais a beaucoup à offrir.
+    </Fragment>
+  </CallToAction>
+</Layout>
